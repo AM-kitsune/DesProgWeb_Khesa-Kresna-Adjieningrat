@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Biodata Mahasiswa Politeknik Negeri Malang</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    table {
+      border-collapse: collapse;
+      width: 80%;
+      margin: auto;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+    }
+    th {
+      text-align: left;
+    }
+    .title {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 10px;
+    }
+    .profile-pic {
+      text-align: center;
+      padding: 50px;
+    }
+    img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+
+  <table>
+    <tr>
+      <td colspan="2" class="title">
+        Biodata Mahasiswa Politeknik Negeri Malang
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" class="profile-pic">
+        <p>Foto Profil Saya</p>
+        <img src="red.jpg" alt="Foto Profil">
+      </td>
+    </tr>
+
+    <tr>
+      <th>Nama Lengkap</th>
+      <td><input type="text" name="nama" size="50"></td>
+    </tr>
+    <tr>
+      <th>Kelas</th>
+      <td><input type="text" name="kelas"></td>
+    </tr>
+    <tr>
+      <th>Prodi</th>
+      <td><input type="text" name="fakultas"></td>
+    </tr>
+    <tr>
+      <th>Universitas</th>
+      <td><input type="text" name="universitas"></td>
+    </tr>
+    <tr>
+      <th>Tanggal Lahir</th>
+      <td><input type="date" name="tgl_lahir"></td>
+    </tr>
+    <tr>
+      <th>Tempat Lahir</th>
+      <td><input type="text" name="tmp_lahir"></td>
+    </tr>
+    <tr>
+      <th>Jenis Kelamin</th>
+      <td>
+        <input type="radio" name="jk" value="Laki-Laki"> Laki-Laki
+        <input type="radio" name="jk" value="Perempuan"> Perempuan
+        <input type="radio" name="jk" value="wallmart vag"> Wallmart bag
+      </td>
+    </tr>
+    <tr>
+      <th>Agama</th>
+      <td>
+        <select name="agama">
+          <option>Pilih Agama</option>
+          <option>Islam</option>
+          <option>Kristen</option>
+          <option>Katolik</option>
+          <option>Hindu</option>
+          <option>Buddha</option>
+          <option>Konghucu</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <th>Golongan Darah</th>
+      <td>
+        <input type="radio" name="goldar" value="O"> O
+        <input type="radio" name="goldar" value="A"> A
+        <input type="radio" name="goldar" value="B"> B
+        <input type="radio" name="goldar" value="AB"> AB
+      </td>
+    </tr>
+    <tr>
+      <th>Hobi</th>
+      <td>
+        <input type="checkbox" name="hobi" value="become pirate"> become pirate
+        <input type="checkbox" name="hobi" value="Nonton"> Nonton Youtube
+        <input type="checkbox" name="hobi" value="gaming"> gaming
+        <input type="checkbox" name="hobi" value="mancing"> mancing perkoro
+      </td>
+    </tr>
+    <tr>
+      <th>Alamat</th>
+      <td><textarea name="alamat" rows="3" cols="50"></textarea></td>
+    </tr>
+    <tr>
+      <th>Kota</th>
+      <td><input type="text" name="kota"></td>
+    </tr>
+    <tr>
+      <th>Provinsi</th>
+      <td><input type="text" name="provinsi"></td>
+    </tr>
+    <tr>
+      <th>Kewarganegaraan</th>
+      <td><input type="text" name="kwn"></td>
+    </tr>
+    <tr>
+      <th>No. Telepon</th>
+      <td><input type="number" name="telp"></td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align:center;">
+        <input type="submit" value="Tampilkan">
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>
