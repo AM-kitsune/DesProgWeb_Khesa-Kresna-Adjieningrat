@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laundry - Sistem Pesanan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="main-container">
+        <header>
+            <h1>Sistem Laundry By <span class="gradient-text">Am_Kitsune</span></h1>
+            <p>Copyright by <span class="gradient-text">Am_Kitsune</span></p>
+        </header>
+
+        <div class="app-layout">
+            <div class="form-panel">
+                <div class="panel-header">
+                    <h2>Input Pesanan Baru</h2>
+                </div>
+                <form id="laundryForm">
+                    <div class="form-group">
+                        <label for="nama">Nama Pelanggan:</label>
+                        <input type="text" id="nama" name="nama" placeholder="contoh: Khesa">
+                        <div class="error-message"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="telepon">Nomor Telepon:</label>
+                        <input type="text" id="telepon" name="telepon" placeholder="contoh: 081234567890">
+                        <div class="error-message"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="berat">Berat (kg):</label>
+                        <input type="number" id="berat" name="berat" min="0" step="0.1" placeholder="contoh: 72.7">
+                        <div class="error-message"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>Jenis Layanan:</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="layanan" value="Cuci Kering Lipat"><span>Cuci Kering Lipat</span></label>
+                            <label><input type="radio" name="layanan" value="Cuci Setrika"><span>Cuci Setrika</span></label>
+                            <label><input type="radio" name="layanan" value="Setrika Saja"><span>Setrika Saja</span></label>
+                        </div>
+                        <div class="error-message"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>Status:</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="status" value="Pending"><span>Pending</span></label>
+                            <label><input type="radio" name="status" value="Selesai"><span>Selesai</span></label>
+                        </div>
+                        <div class="error-message"></div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" id="submitBtn">Tambah Pesanan</button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="results-panel">
+                <div class="panel-header">
+                    <h2>Daftar Pesanan</h2>
+                </div>
+                <div id="bulk-action-container" style="display: none;">
+                    <label class="select-all-label">
+                        <input type="checkbox" id="selectAll"> Pilih Semua
+                    </label>
+                    <button id="bulkUpdateBtn">Ubah Terpilih menjadi Selesai (Status)</button>
+                </div>
+                <div id="results">
+                    <p class="no-data">Memuat data pesanan...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="editModalBackdrop" class="modal-backdrop"></div>
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <div class="panel-header">
+                <h2>Edit Pesanan</h2>
+            </div>
+            <form id="editForm">
+                <input type="hidden" id="editOrderId" name="id">
+                <div class="form-group">
+                    <label for="editNama">Nama Pelanggan:</label>
+                    <input type="text" id="editNama" name="nama">
+                    <div class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <label for="editTelepon">Nomor Telepon:</label>
+                    <input type="text" id="editTelepon" name="telepon">
+                    <div class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <label for="editBerat">Berat (kg):</label>
+                    <input type="number" id="editBerat" name="berat" min="0" step="0.1">
+                    <div class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <label>Jenis Layanan:</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="edit_layanan" value="Cuci Kering Lipat"><span>Cuci Kering Lipat</span></label>
+                        <label><input type="radio" name="edit_layanan" value="Cuci Setrika"><span>Cuci Setrika</span></label>
+                        <label><input type="radio" name="edit_layanan" value="Setrika Saja"><span>Setrika Saja</span></label>
+                    </div>
+                    <div class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <label>Status:</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="edit_status" value="Pending"><span>Pending</span></label>
+                        <label><input type="radio" name="edit_status" value="Selesai"><span>Selesai</span></label>
+                    </div>
+                    <div class="error-message"></div>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" id="cancelEdit" class="btn-secondary">Batal</button>
+                    <button type="submit">Simpan Perubahan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

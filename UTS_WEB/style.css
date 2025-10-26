@@ -1,0 +1,355 @@
+:root {
+    --bg-dark: #111827;
+    --bg-panel: #1F2937;
+    --border-color: #374151;
+    --text-primary: #F3F4F6;
+    --text-secondary: #9CA3AF;
+    --accent-start: #4F46E5;
+    --accent-end: #7C3AED;
+    --error-color: #F87171;
+    --status-pending: #FBBF24;
+    --status-selesai: #34D399;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    margin: 0;
+    padding: 2rem;
+}
+
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, var(--accent-start), var(--accent-end));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+header p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+}
+
+.app-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 2rem;
+}
+
+.form-panel, .results-panel {
+    background-color: var(--bg-panel);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 0 30px rgba(0,0,0,0.2);
+}
+
+.panel-header {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+.panel-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--text-primary);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]::placeholder, input[type="number"]::placeholder {
+    color: var(--text-secondary);
+}
+
+input[type="text"]:focus, input[type="number"]:focus {
+    outline: none;
+    border-color: var(--accent-start);
+    box-shadow: 0 0 10px rgba(79, 70, 229, 0.5);
+}
+
+.radio-group label {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 1.5rem;
+    cursor: pointer;
+}
+
+.radio-group input[type="radio"] {
+    display: none;
+}
+
+.radio-group span {
+    padding: 8px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.radio-group input[type="radio"]:checked + span {
+    background: linear-gradient(90deg, var(--accent-start), var(--accent-end));
+    color: white;
+    border-color: var(--accent-start);
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(90deg, var(--accent-start), var(--accent-end));
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    box-shadow: 0 0 15px rgba(79, 70, 229, 0.6);
+    transform: translateY(-2px);
+}
+
+.error-message {
+    color: var(--error-color);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    display: none;
+}
+
+#bulk-action-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-dark);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.select-all-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+#selectAll {
+    margin-right: 0.5rem;
+}
+
+#bulkUpdateBtn {
+    width: auto;
+    font-size: 0.9rem;
+    padding: 8px 16px;
+}
+
+#results {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.order-entry {
+    background-color: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.order-checkbox {
+    flex-shrink: 0;
+}
+
+.order-details {
+    flex-grow: 1;
+}
+
+.order-details p {
+    margin: 0.5rem 0;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+}
+
+.order-details strong {
+    color: var(--text-secondary);
+}
+
+.order-actions {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.status {
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+}
+
+.status-pending {
+    background-color: rgba(251, 191, 36, 0.2);
+    color: var(--status-pending);
+}
+
+.status-selesai {
+    background-color: rgba(52, 211, 153, 0.2);
+    color: var(--status-selesai);
+}
+
+.btn-selesai {
+    background: none;
+    border: 1px solid var(--status-pending);
+    color: var(--status-pending);
+    font-size: 0.8rem;
+    padding: 6px 12px;
+    width: auto;
+    margin-top: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-selesai:hover {
+    background-color: var(--status-pending);
+    color: var(--bg-dark);
+    box-shadow: none;
+    transform: none;
+}
+
+.no-data {
+    color: var(--text-secondary);
+    font-style: italic;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    display: none;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1001;
+    width: 90%;
+    max-width: 500px;
+    display: none;
+}
+
+.modal-content {
+    background-color: var(--bg-panel);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.modal.show, .modal-backdrop.show {
+    display: block;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.modal-actions button {
+    flex: 1;
+}
+
+.btn-secondary {
+    background: var(--border-color);
+}
+
+.btn-secondary:hover {
+    background: #4B5563;
+    box-shadow: none;
+    transform: none;
+}
+
+.btn-edit {
+    background: none;
+    border: 1px solid var(--text-secondary);
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    padding: 6px 12px;
+    width: auto;
+    margin-top: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-edit:hover {
+    background-color: var(--text-secondary);
+    color: var(--bg-dark);
+    box-shadow: none;
+    transform: none;
+}
+
+@media (max-width: 992px) {
+    .app-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 1rem;
+    }
+    header h1 {
+        font-size: 2rem;
+    }
+}
